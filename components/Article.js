@@ -86,6 +86,28 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Declaration of Independence',
+    date: 'July 4th, 1776',
+    firstParagraph: 'The unanimous Declaration of the thirteen united States of America, When in the Course of human events, it becomes necessary for one people to dissolve the political bands which have connected them with another, and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Natures God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.',
+    secondParagraph: 'We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness.',
+    thirdParagraph: 'Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn, that mankind are more disposed to suffer, while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. But when a long train of abuses and usurpations, pursuing invariably the same Object evinces a design to reduce them under absolute Despotism, it is their right, it is their duty, to throw off such Government, and to provide new Guards for their future security.'
+
+  },
+  {
+    title: 'Constitution of the United States',
+    date: 'September 17th, 1789',
+    firstParagraph: 'We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.',
+    secondParagraph: 'Article I, Section 1: All legislative Powers herein granted shall be vested in a Congress of the United States, which shall consist of a Senate and House of Representatives.',
+    thirdParagraph: 'Article I, Section 2, subsection 1: The House of Representatives shall be composed of Members chosen every second Year by the People of the several States, and the Electors in each State shall have the Qualifications requisite for Electors of the most numerous Branch of the State Legislature.'
+  },
+  {
+    title: 'Gettysburg Address',
+    date: 'November 19th, 1863',
+    firstParagraph: 'Fourscore and seven years ago our fathers brought forth, on this continent, a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal. Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived, and so dedicated, can long endure.',
+    secondParagraph: ' We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting-place for those who here gave their lives, that that nation might live. It is altogether fitting and proper that we should do this. But, in a larger sense, we cannot dedicate, we cannot consecrate—we cannot hallow—this ground.',
+    thirdParagraph: 'The brave men, living and dead, who struggled here, have consecrated it far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced.'
   }
 ];
 
@@ -114,3 +136,44 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker (article) {
+  let div = document.createElement('div');
+  div.className = 'article';
+  let title = document.createElement('h2');
+  title.textContent = article.title;
+  div.appendChild (title);
+  let date = document.createElement('p');
+  date.className = ('date');
+  date.textContent = article.date;
+  div.appendChild (date);
+  
+  // re-write this later with a separate function passing the div and article so it's DRYer?????
+  let para1 = document.createElement('p');
+  para1.textContent = article.firstParagraph;
+  div.appendChild (para1);
+  let para2 = document.createElement('p');
+  para2.textContent = article.secondParagraph;
+  div.appendChild (para2);
+  let para3 = document.createElement('p');
+  para3.textContent = article.thirdParagraph;
+  div.appendChild (para3);
+  let button = document.createElement('span');
+  button.className = ('expandButton');
+  button.textContent = "+";
+  button.addEventListener('click', (e) => {
+    div.classList.toggle ('article-open');
+  } )
+  div.appendChild(button);
+  console.log(div);
+  return div;
+
+};
+
+let articles = document.querySelector('.articles');
+
+data.forEach((articleData) => {
+  articles.appendChild(articleMaker(articleData));
+});
+
+
