@@ -176,4 +176,26 @@ data.forEach((articleData) => {
   articles.appendChild(articleMaker(articleData));
 });
 
+// make a button to add articles, see stretch goal below
+let addArticle = document.createElement('button');
+addArticle.textContent = "Add New Article";
+addArticle.className = ('addButton');
+addArticle.addEventListener('click', () => {
+  articleBuilder ();
+});
+articles.prepend(addArticle);
+
+// this seems to be the stretch goal so what the heck am I missing?
+
+function articleBuilder () {
+    let object = {};
+    object.title = prompt ("What's the title of the article?", "Article title");
+    object.date =  prompt ("Enter a date for the article", "January 21st, 2021");
+    object.firstParagraph = prompt ("write a paragraph for the article");
+    object.secondParagraph = prompt ("write a second paragraph for the article");
+    object.thirdParagraph = prompt ("write a third paragraph for the article");
+    let newArticle = articleMaker(object);
+    articles.appendChild(newArticle);
+}
+
 
