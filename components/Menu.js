@@ -51,18 +51,17 @@ function menuMaker (data) {
   let menuButton = document.querySelector('.menu-button');
   console.log (menuButton);
   menuButton.addEventListener ('click', () => {
-    // if (newMenu.classList.contains ('menu-in')) {
-    //   newMenu.classList.remove ('menu-in');
-    //   newMenu.classList.add ('menu-out');
-    // } else {
-    //   newMenu.classList.remove ('menu-in');
-    //   newMenu.classList.add ('menu-out');
-    // }
+   
     newMenu.classList.toggle ('menu-in');
     newMenu.classList.toggle ('menu-out');
     // newMenu.classList.toggle ('menu--open');
-    // var inOut = newMenu.classList.contains ('menu slide-in');
-    // newMenu.setAttribute('class', inOut ? 'menu slide-out' : 'menu slide-in')
+   });
+    let articles = document.querySelector('.articles');
+    articles.addEventListener ('click', () => {
+      if (newMenu.classList.contains ('menu-in')) {
+          newMenu.classList.remove ('menu-in');
+          newMenu.classList.add ('menu-out');
+        }
     });
   return div;
 

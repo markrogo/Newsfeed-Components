@@ -140,6 +140,7 @@ const data = [
 function articleMaker (article) {
   let div = document.createElement('div');
   div.className = 'article';
+  div.classList.add ('article-closed');
   let title = document.createElement('h2');
   title.textContent = article.title;
   div.appendChild (title);
@@ -160,9 +161,21 @@ function articleMaker (article) {
   div.appendChild (para3);
   let button = document.createElement('span');
   button.className = ('expandButton');
-  button.textContent = "+";
+  let buttonText = "OPEN"
+  button.textContent = buttonText;
   button.addEventListener('click', (e) => {
+    if (div.classList.contains ('article-open')) {
+      buttonText = "OPEN"; 
+    } else {
+      buttonText = "CLOSE";
+    };
     div.classList.toggle ('article-open');
+    
+    div.classList.toggle ('article-closed')
+    button.textContent = (buttonText);
+
+
+    // div.classList.toggle ('article-open');
   } );
   div.appendChild(button);
   console.log(div);

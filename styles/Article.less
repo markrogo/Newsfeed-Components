@@ -43,9 +43,50 @@
  
 }
 
+// .article-open {
+//   height: 400px;
+// }
+
+
+/// article slider ???
 .article-open {
+  animation-duration: 1s;
+  animation-name: slideopen;
   height: 400px;
+  // left: 0px;
 }
+
+.article-closed {
+ 
+  animation-duration: 1s;
+  animation-name: slideclosed;
+ 
+}
+
+
+@keyframes slideopen {
+  from {
+    height: 50px;
+  }
+
+  to {
+    height: 400px;
+  }
+}
+  @keyframes slideclosed {
+    from {
+      height: 400px;
+    }
+  
+    to {
+      height: 50px;
+    }
+  }
+
+  // this is the end of our animation code
+
+
+
 
  // new classes for add button
  .buttonDiv {
