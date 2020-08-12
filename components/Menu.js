@@ -36,7 +36,8 @@ let menuItems = [
 
 function menuMaker (data) {
   let div = document.createElement('div');
-  div.className = 'menu';
+  div.classList.add('menu', 'menu-out'); // can add menu-in class here
+  console.log (div);
 
   let list = document.createElement('ul');
   div.appendChild(list);
@@ -50,13 +51,26 @@ function menuMaker (data) {
   let menuButton = document.querySelector('.menu-button');
   console.log (menuButton);
   menuButton.addEventListener ('click', () => {
-    menu.classList.toggle ('menu--open');
-  });
+    // if (newMenu.classList.contains ('menu-in')) {
+    //   newMenu.classList.remove ('menu-in');
+    //   newMenu.classList.add ('menu-out');
+    // } else {
+    //   newMenu.classList.remove ('menu-in');
+    //   newMenu.classList.add ('menu-out');
+    // }
+    newMenu.classList.toggle ('menu-in');
+    newMenu.classList.toggle ('menu-out');
+    // newMenu.classList.toggle ('menu--open');
+    // var inOut = newMenu.classList.contains ('menu slide-in');
+    // newMenu.setAttribute('class', inOut ? 'menu slide-out' : 'menu slide-in')
+    });
   return div;
 
 };
 
-
+console.log ('the full menu')
 let header = document.querySelector('.header');
-let menu = menuMaker(menuItems);
-header.appendChild(menu);
+let newMenu = menuMaker(menuItems);
+
+console.log ('the full menu', newMenu)
+header.appendChild(newMenu);

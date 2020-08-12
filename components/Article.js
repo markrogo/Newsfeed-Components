@@ -163,7 +163,7 @@ function articleMaker (article) {
   button.textContent = "+";
   button.addEventListener('click', (e) => {
     div.classList.toggle ('article-open');
-  } )
+  } );
   div.appendChild(button);
   console.log(div);
   return div;
