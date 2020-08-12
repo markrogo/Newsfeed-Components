@@ -1,0 +1,201 @@
+/* index.less */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fffef7;
+  }
+  * {
+    box-sizing: border-box;
+  }
+
+  /* header.less */
+
+  .header {
+    width: 100%;
+    height: 75px;
+    background-color: #388E3C;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+  }
+    h1 {
+      margin: 0;
+      font-size: 48px;
+    }
+  
+  
+    /* menu.less */
+
+
+    .menu-button {
+        position: absolute;
+        left: 20px;
+        cursor: pointer;
+      }
+      
+      .menu {
+          
+        position: fixed;
+        top: 75px;
+        left: -350px;
+        width: 350px;
+        height: 100vh; /* This give the height 100% of the screen or, '100% of View Height' */
+        background-color: #81C784;
+        border: 1px solid #004D40;
+        border-left: none;
+        border-bottom: none;
+        z-index: 2; /* This set the layer level of the element, it has precendence over initial level of 1*/
+      
+    
+       
+      }
+      
+      .menu-in {
+        animation-duration: 1s;
+        animation-name: slidein;
+        left: 0px;
+      }
+      
+      .menu-out {
+       
+        animation-duration: 1s;
+        animation-name: slideout;
+        // left: 0px;
+      }
+      
+      
+      @keyframes slidein {
+        from {
+          margin-left: -350px;
+        }
+      
+        to {
+          margin-left: 0px;
+        }
+      }
+        @keyframes slideout {
+          from {
+            margin-left: 350px;
+          }
+        
+          to {
+            margin-left: -350px;
+          }
+        }
+      
+       
+      
+      .menu ul li{
+        list-style-type: none;
+        font-size: 32px;
+        padding: 30px 0;
+        text-align: center;
+      }
+      
+      .menu--open {
+        display: block;
+      }
+
+      /* article.less */
+
+      .articles {
+        margin-top: 95px;
+      }
+      .article {
+        margin: 20px 10%;
+        padding: 0 20px 25px;
+        border: 1px solid lightgrey;
+        border-radius: 10px;
+        background-color: white;
+        position: relative;
+        height: 70px;
+        overflow: hidden;
+        box-shadow: 2px 2px 2px lightgrey;
+      }
+        h2 {
+          font-size: 28px;
+          padding: 0;
+          margin: 15px 0 0;
+        }
+      
+        .date {
+          margin: 0;
+          font-size: 14px;
+        }
+      
+        .close {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+      
+        .expandButton {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          font-size: 12px;
+          color: grey;
+          cursor: pointer;
+          transform: translate(-50%);
+          background-color: white;
+        }
+      
+       
+      
+      
+     
+      
+      .article-open {
+        animation-duration: 1s;
+        animation-name: slideopen;
+        height: 400px;
+      }
+      
+      .article-closed {
+       
+        animation-duration: 1s;
+        animation-name: slideclosed;
+       
+      }
+      
+      
+      @keyframes slideopen {
+        from {
+          height: 70px;
+        }
+      
+        to {
+          height: 400px;
+        }
+      }
+        @keyframes slideclosed {
+          from {
+            height: 400px;
+          }
+        
+          to {
+            height: 70px;
+          }
+        }
+      
+        
+      
+      
+      
+       
+      .addButton {
+        position: relative;
+        left: 40%;
+        color:red;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      
+      
+      
