@@ -39,12 +39,66 @@
     transform: translate(-50%);
     background-color: white;
   }
+
+ 
 }
 
+// .article-open {
+//   height: 400px;
+// }
+
+
+/// article slider ???
 .article-open {
+  animation-duration: 1s;
+  animation-name: slideopen;
   height: 400px;
+  // left: 0px;
+}
+
+.article-closed {
+ 
+  animation-duration: 1s;
+  animation-name: slideclosed;
+ 
 }
 
 
+@keyframes slideopen {
+  from {
+    height: 50px;
+  }
+
+  to {
+    height: 400px;
+  }
+}
+  @keyframes slideclosed {
+    from {
+      height: 400px;
+    }
+  
+    to {
+      height: 50px;
+    }
+  }
+
+  // this is the end of our animation code
+
+
+
+
+ // new classes for add button
+ .buttonDiv {
+ // could make and style this div, but the whole project isn't really well styled so not sure it's worth doing
+
+}
+.addButton {
+  position: relative;
+  left: 40%;
+  color:red;
+  font-size: 20px;
+  cursor: pointer;
+}
 
 

@@ -5,10 +5,10 @@
 }
 
 .menu {
-  display: none;
+  // display: none;
   position: fixed;
   top: 75px;
-  left: 0;
+  left: -350px;
   width: 350px;
   height: 100vh; /* This give the height 100% of the screen or, '100% of View Height' */
   background-color: #81C784;
@@ -16,7 +16,46 @@
   border-left: none;
   border-bottom: none;
   z-index: 2; /* This set the layer level of the element, it has precendence over initial level of 1*/
+
+
+  // we're gonna try to animat the menu
+ 
 }
+
+.menu-in {
+  animation-duration: 1s;
+  animation-name: slidein;
+  left: 0px;
+}
+
+.menu-out {
+ 
+  animation-duration: 1s;
+  animation-name: slideout;
+  // left: 0px;
+}
+
+
+@keyframes slidein {
+  from {
+    margin-left: -350px;
+  }
+
+  to {
+    margin-left: 0px;
+  }
+}
+  @keyframes slideout {
+    from {
+      margin-left: 350px;
+    }
+  
+    to {
+      margin-left: -350px;
+    }
+  }
+
+  // this is the end of our animation code
 
 .menu ul li{
   list-style-type: none;
